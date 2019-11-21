@@ -8,7 +8,8 @@ OUT_DIR = './run-result'
 
 def run_blender(blender_file, range_in, range_out):
     out_path = OUT_DIR+"/frame_#####"
-    command = "/bin/blender-2.80-linux-glibc217-x86_64/blender -b "+ "./tmp/"+ blender_file + \
+    #we supports Blender 2.81
+    command = "/bin/blender-2.81-linux-glibc217-x86_64/blender -b "+ "./tmp/"+ blender_file + \
     " -x 1 -o "+ out_path + " -f " + range_in + ".." + range_out
 
     print("Running Blender Command")
