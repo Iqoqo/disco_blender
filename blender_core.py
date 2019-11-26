@@ -9,10 +9,9 @@ OUT_DIR = './run-result'
 def run_blender(blender_file, range_in, range_out):
     out_path = OUT_DIR+"/frame_#####"
     #we supports Blender 2.81
-    command = "/bin/blender-2.81-linux-glibc217-x86_64/blender -b "+ "./tmp/"+ blender_file + \
-    " -x 1 -o "+ out_path + " -f " + range_in + ".." + range_out
-
-    print("Running Blender Command")
+    command = "/bin/blender-2.81-linux-glibc217-x86_64/blender -b --verbose 0 "+ "./tmp/"+ blender_file + \
+    " -x 1 -o "+ out_path + " -f " + range_in + ".." + range_out + " > nul 2>&1"
+    print("Running Command: ")
     print(command)
     os.system(command)
 
@@ -58,11 +57,11 @@ def main():
     fp.close()
 
     print ("Processing "+URL_blender)
-    os.system("wget -O tmp.zip "+URL_blender)
+    os.system("wget -q -O tmp.zip "+URL_blender)
     os.system("unzip tmp.zip -d ./tmp")
     
     run_blender(blender_file, range_in, range_out)
-
+    
     print ("Blender Processing Completed")
 
 if __name__ == "__main__":
