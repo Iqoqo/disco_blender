@@ -73,7 +73,7 @@ disco login -k [API key]
 2. Add and Run the job
 
 ```
-disco add --name "blender_example" --script blender_core.py --input classroom_*.txt -u l --run 
+disco add --name "blender_example" --script blender_core.py --input "classroom_*.txt" -u l --run 
 ```
 
 3. Monitor the job with the disco's view command
