@@ -101,7 +101,7 @@ Note: Please talk to our dis.co team and enable a dis.co account with the custom
 7. Check the "Autorun this job" checkbox
 8. Click "Create Job" button
 
-![job creation ui][doc/create_job_ui.png]
+![job creation ui][https://github.com/Iqoqo/disco_blender/blob/master/doc/create_job_ui.png]
 
 
 Once the job is completed, you can download individual results from the web interface. 
