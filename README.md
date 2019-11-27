@@ -82,19 +82,26 @@ disco add --name "blender_example" --script blender_core.py --input classroom_*.
 disco view
 ```
 
+4. Download the results (once the job is completed)
+
+```
+disco view -d
+```
+
 ## How to Run (Dis.co Web UI)
 
 Note: Please talk to our dis.co team and enable a dis.co account with the customized docker image.
 
-1. Open app.dis.co on a Chrome browser (Currently we do not support other browsers)
-2. Login to the dis.co account 
-3. Click Create A Job (right corner)
-4. Select (or drag and drop) the blender_core.py as the script file
-5. Select (or drag and drop) the list
-6. Select "Large" as the Job Size
-7. Check "Autorun this job" 
+1. Open <app.dis.co> in a Chrome browser (Currently we do not support other browsers)
+2. Login to the dis.co account with your account username and password
+3. Click "Create A Job" button (right corner)
+4. Select (or drag and drop) the script file (e.g., **blender_core.py**)
+5. Select (or drag and drop) a list of tasks (e.g., **classroom_1_10.txt**, **classroom_11_20.txt**,...)
+6. Select "Large" as the Job Size from the drop down list
+7. Check the "Autorun this job" checkbox
+8. Click "Create Job" button
 
 
-
+Once the job is completed, you can download individual results from the web interface. 
 
 
