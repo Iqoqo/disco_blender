@@ -1,26 +1,41 @@
 #!/usr/local/bin/python3
 import sys
 import os
-from pathlib import Path
+import requests
+import pathlib
 
 ROOT_DIR = '/local'
 OUT_DIR = './run-result'
+
+def send_data_to_server(image_path):
+    image_filename = os.path.basename(image_path)
+    url_post = 'http://100.25.247.222/uploads/upload_images.php'
+    multipart_form_data = {
+        'userfile': (image_filename, open(image_path, 'rb'))
+    }
+    response = requests.post(url_post,
+                             files=multipart_form_data)
+    print(response)
 
 def run_blender(blender_file, range_in, range_out):
     out_path = OUT_DIR+"/frame_#####"
     #we supports Blender 2.81
     command = "/bin/blender-2.81-linux-glibc217-x86_64/blender -b --verbose 0 "+ "./tmp/"+ blender_file + \
     " -x 1 -o "+ out_path + " -f " + range_in + ".." + range_out + " > nul 2>&1"
-    print("Running Command: ")
+    
+    #run the blender command
     print(command)
     os.system(command)
 
+    #upload results to the web (optional)
+    cur_dir = pathlib.Path('./run-result')
+    cur_pattern = "*.*"
+    for cur_file in cur_dir.glob(cur_pattern):
+        print("Uploading to Server..."+str(cur_file)+"\n")
+        send_data_to_server(cur_file)
+
+
 def parse_args():
-    """
-    Parse arguments
-        argv[1] in_file
-    :return: args
-    """
     in_file = None
     try:
         in_file = sys.argv[1]
