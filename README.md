@@ -17,7 +17,7 @@ And once completed, you can see the image with the docker command.
 docker images
 
 REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
-raymondlo84/disco_tensorflow   latest-py3          29f1df36aca0        5 days ago          2.71GB
+raymondlo84/disco_tensorflow   latest-py3          a667592ba964        19 hours ago        851MB
 ```
 
 
@@ -103,5 +103,6 @@ Note: Please talk to our dis.co team and enable a dis.co account with the custom
 
 
 Once the job is completed, you can download individual results from the web interface. 
+
 
 
