@@ -19,8 +19,9 @@ def send_data_to_server(image_path):
 
 def run_blender(blender_file, range_in, range_out):
     out_path = OUT_DIR+"/frame_#####"
+    blender_exe_path = "/usr/bin/blender-2.81a-linux-glibc217-x86_64/blender"
     #we supports Blender 2.81
-    command = "/bin/blender-2.81-linux-glibc217-x86_64/blender -b --verbose 0 "+ "./tmp/"+ blender_file + \
+    command = blender_exe_path +" -b "+ "./tmp/"+ blender_file + \
     " -x 1 -o "+ out_path + " -f " + range_in + ".." + range_out + " > nul 2>&1"
     
     #run the blender command
