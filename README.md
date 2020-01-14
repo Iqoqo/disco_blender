@@ -1,14 +1,14 @@
 # Running Blender on Dis.co's Distributed Platform 
 
-With over half a million downloads per month, Blender is one of the most popular, free and open-source 3D creation tools in the market today. In this sample code, we will focus on the integration of Cycles, a ray-trace based production render engine, on the [Dis.co](http://dis.co) and Packet platform. Dis.co is a parallelization platform that provides easy and flexible ways to scale your compute solutions by automatically offloading tasks onto servers on-demands. On the other hand, Packets is a bare-metal server solution for accessing high-performance computers in minutes. By combining the Dis.co and Packet platform, we are exploring the best of parallelization and best of high-performance bare-metal server configurations for maximal throughputs.
+With over half a million downloads per month, Blender is one of the most popular, free and open-source 3D creation tools in the market today. In this sample code, we will focus on the integration of Cycles, a ray tracing based engine, on the [Dis.co](http://dis.co) and Packet platform. Dis.co is a parallelization platform that provides easy and flexible ways to scale your compute solutions by automatically offloading tasks onto servers on-demands. On the other hand, Packets is a bare-metal server solution for accessing high-performance computers in minutes. By combining the Dis.co and Packet platform, we are exploring the best of parallelization and best of high-performance bare-metal server configurations for maximal throughputs.
 
 ![Classroom Output](https://github.com/Iqoqo/disco_blender/blob/master/classroom_sample/classroom.gif "Classroom")
 
 ## A Blender-enabled Docker Image
-To support blender on Dis.co, a custom Docker image (with Blender 2.81 pre-installed) is created and linked to the dis.co account. You can preview the docker image by downloading it from the DockerHub. 
+To support Blender on Dis.co, a custom Docker image (with Blender 2.81a pre-installed) is created and linked to the dis.co account. You can preview the docker image by downloading it from the DockerHub. 
 
 ```
-docker pull raymondlo84/disco_tensorflow:latest-py3
+docker pull raymondlo84/disco_blender
 ```
 
 And once completed, you can see the image with the docker command.
@@ -16,8 +16,9 @@ And once completed, you can see the image with the docker command.
 ```
 docker images
 
-REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
-raymondlo84/disco_tensorflow   latest-py3          a667592ba964        19 hours ago        851MB
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+raymondlo84/disco_blender   latest              a667592ba964        3 weeks ago         851MB
+
 ```
 
 
@@ -73,19 +74,19 @@ disco login -k [API key]
 2. Add and Run the job
 
 ```
-disco add --name "blender_example" --script blender_core.py --input classroom_*.txt -u l --run 
+ disco job create -cit l --name "blender_example" --script blender_core.py --input "classroom_*.txt" -r
 ```
 
 3. Monitor the job with the disco's view command
 
 ```
-disco view
+disco job view
 ```
 
 4. Download the results (once the job is completed)
 
 ```
-disco view -d
+disco job view -d
 ```
 
 ## How to Run (Dis.co Web UI)
