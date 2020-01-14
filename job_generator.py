@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 
 start = 0
-end = 140
+end = 10
 skip = 1
 #url = "http://100.25.247.222/uploads/classroom4k.zip"
 url = "http://100.25.247.222/uploads/classroom_720.zip"
