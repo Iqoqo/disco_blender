@@ -3,6 +3,7 @@ import sys
 import os
 import requests
 import pathlib
+import time
 
 ROOT_DIR = '/local'
 OUT_DIR = './run-result'
@@ -18,6 +19,7 @@ def send_data_to_server(image_path):
     print(response)
 
 def run_blender(blender_file, range_in, range_out):
+    start_time = time.time()
     out_path = OUT_DIR+"/frame_#####"
     blender_exe_path = "/usr/bin/blender-2.81a-linux-glibc217-x86_64/blender"
     #we supports Blender 2.81
@@ -27,6 +29,9 @@ def run_blender(blender_file, range_in, range_out):
     #run the blender command
     print(command)
     os.system(command)
+    end_time = time.time()
+    exec_time = end_time - start_time;
+    print ("Execution Time: "+ str(exec_time))
 
     #upload results to the web (optional)
     cur_dir = pathlib.Path('./run-result')
@@ -51,7 +56,7 @@ def main():
     in_file = parse_args()
 
     if in_file is None:
-        print("please provide a blender batch script file to start")
+        sys.exit("please provide a Blender batch script file to start")
         return
 
     URL_blender = ""
@@ -64,7 +69,6 @@ def main():
     #name to the blender file
     #range in
     #range out
-
     with open(in_file) as fp:
         URL_blender = fp.readline().rstrip('\n')
         blender_file = fp.readline().rstrip('\n')
@@ -72,6 +76,7 @@ def main():
         range_out = fp.readline().rstrip('\n')
     fp.close()
 
+    #fetch the content from the dedicated URL and extract the package
     print ("Processing "+URL_blender)
     os.system("wget -q -O tmp.zip "+URL_blender)
     os.system("unzip tmp.zip -d ./tmp")
