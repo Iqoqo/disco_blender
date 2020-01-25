@@ -1,0 +1,8 @@
+classroom_sample filter=lfs diff=lfs merge=lfs -text
+classroom_sample/classroom_640_480_1_1.txt filter=lfs diff=lfs merge=lfs -text
+classroom_sample/classroom_640_480_1_2.txt filter=lfs diff=lfs merge=lfs -text
+classroom_sample/classroom_640_480_2_4.txt filter=lfs diff=lfs merge=lfs -text
+classroom_sample/4k filter=lfs diff=lfs merge=lfs -text
+classroom_sample/classroom.gif filter=lfs diff=lfs merge=lfs -text
+classroom_sample/classroom.jpg filter=lfs diff=lfs merge=lfs -text
+classroom_sample/classroom_640_480.mp4 filter=lfs diff=lfs merge=lfs -text
