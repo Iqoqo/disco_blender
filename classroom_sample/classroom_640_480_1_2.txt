@@ -1,5 +1,3 @@
-http://100.25.247.222/sfs/upload/2019/11/9amjyf.zip
-classroom/classroom.blend
-1
-2
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:56b256c8dbc82d5118ad1e36e080c17f5ab456e7fa24c57478c8a4f69fff8fab
+size 83
