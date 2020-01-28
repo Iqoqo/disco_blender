@@ -89,8 +89,8 @@ def main():
 
     #fetch the content from the dedicated URL and extract the package
     print ("Processing "+URL_blender)
-    os.system("wget -q -O tmp.zip "+URL_blender)
-    os.system("unzip tmp.zip -d /tmp")
+    os.system("wget -q -O /tmp/tmp.zip "+URL_blender)
+    os.system("unzip /tmp/tmp.zip -d /tmp")
     
     run_blender(blender_file, range_in, range_out, upload_web)
     
