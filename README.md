@@ -86,7 +86,7 @@ disco job view <job_id>
 4. Download the results (once the job is completed)
 
 ```
-disco job view <job_id> -d 
+disco job download-results <job_id> -d .
 ```
 
 ## How to Run (Dis.co Web UI)
