@@ -12,7 +12,6 @@ OUT_DIR = './run-result'
 #The upload_images.php receives images from a POST HTTP. 
 def send_data_to_server(url_post, image_path):
     image_filename = os.path.basename(image_path)
-    url_post = 'http://100.25.247.222/uploads/upload_images.php'
     multipart_form_data = {
         'userfile': (image_filename, open(image_path, 'rb'))
     }
