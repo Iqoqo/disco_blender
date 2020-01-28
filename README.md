@@ -71,22 +71,22 @@ Once you have generated the tasks files (e.g., classroom_1_10.txt, classroom_11_
 disco login -k [API key]
 ```
 
-2. Add and Run the job
+2. Add and Run the job (also make note of the <job_id> for next step).
 
 ```
  disco job create -cit l --name "blender_example" --script blender_core.py --input "classroom_*.txt" -r
 ```
 
-3. Monitor the job with the disco's view command
+3. Monitor the job with the disco's view command: <job_id> 
 
 ```
-disco job view
+disco job view <job_id> 
 ```
 
 4. Download the results (once the job is completed)
 
 ```
-disco job view -d
+disco job view <job_id> -d 
 ```
 
 ## How to Run (Dis.co Web UI)
