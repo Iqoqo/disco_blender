@@ -8,6 +8,8 @@ import time
 ROOT_DIR = '/local'
 OUT_DIR = './run-result'
 
+#This function sends an image to a dedicated server
+#The upload_images.php receives images from a POST HTTP. 
 def send_data_to_server(image_path):
     image_filename = os.path.basename(image_path)
     url_post = 'http://100.25.247.222/uploads/upload_images.php'
@@ -18,12 +20,14 @@ def send_data_to_server(image_path):
                              files=multipart_form_data)
     print(response)
 
-def run_blender(blender_file, range_in, range_out):
+#This function executes the Blender project
+#range_in range_out are the first and end frame to be rendered
+def run_blender(blender_file, range_in, range_out, upload_web):
     start_time = time.time()
     out_path = OUT_DIR+"/frame_#####"
     blender_exe_path = "/usr/bin/blender-2.81a-linux-glibc217-x86_64/blender"
     #we supports Blender 2.81
-    command = blender_exe_path +" -b "+ "./tmp/"+ blender_file + \
+    command = blender_exe_path +" -b "+ "/tmp/"+ blender_file + \
     " -x 1 -o "+ out_path + " -f " + range_in + ".." + range_out + " > nul 2>&1"
     
     #run the blender command
@@ -32,6 +36,10 @@ def run_blender(blender_file, range_in, range_out):
     end_time = time.time()
     exec_time = end_time - start_time;
     print ("Execution Time: "+ str(exec_time))
+
+    #exit 
+    if upload_web == 0:
+        return
 
     #upload results to the web (optional)
     cur_dir = pathlib.Path('./run-result')
@@ -51,7 +59,8 @@ def parse_args():
     print(f"{in_file}")
     return in_file
 
-# main
+# main function that takes the input parameters and process the
+# blender project file.
 def main():
     in_file = parse_args()
 
@@ -69,19 +78,21 @@ def main():
     #name to the blender file
     #range in
     #range out
+    #upload_web
     with open(in_file) as fp:
         URL_blender = fp.readline().rstrip('\n')
         blender_file = fp.readline().rstrip('\n')
         range_in = fp.readline().rstrip('\n')
         range_out = fp.readline().rstrip('\n')
+        upload_web = fp.readline().rstrip('\n')
     fp.close()
 
     #fetch the content from the dedicated URL and extract the package
     print ("Processing "+URL_blender)
     os.system("wget -q -O tmp.zip "+URL_blender)
-    os.system("unzip tmp.zip -d ./tmp")
+    os.system("unzip tmp.zip -d /tmp")
     
-    run_blender(blender_file, range_in, range_out)
+    run_blender(blender_file, range_in, range_out, upload_web)
     
     print ("Blender Processing Completed")
 
