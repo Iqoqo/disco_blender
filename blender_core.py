@@ -10,7 +10,7 @@ OUT_DIR = './run-result'
 
 #This function sends an image to a dedicated server
 #The upload_images.php receives images from a POST HTTP. 
-def send_data_to_server(image_path):
+def send_data_to_server(url_post, image_path):
     image_filename = os.path.basename(image_path)
     url_post = 'http://100.25.247.222/uploads/upload_images.php'
     multipart_form_data = {
@@ -37,16 +37,15 @@ def run_blender(blender_file, range_in, range_out, upload_web):
     exec_time = end_time - start_time;
     print ("Execution Time: "+ str(exec_time))
 
-    #exit 
-    if upload_web == 0:
+    #exit if URL is not provided
+    if upload_web == '':
         return
-
     #upload results to the web (optional)
     cur_dir = pathlib.Path('./run-result')
     cur_pattern = "*.*"
     for cur_file in cur_dir.glob(cur_pattern):
         print("Uploading to Server..."+str(cur_file)+"\n")
-        send_data_to_server(cur_file)
+        send_data_to_server(upload_web, cur_file)
 
 
 def parse_args():

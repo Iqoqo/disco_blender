@@ -7,7 +7,7 @@ job_name = "classroom_sample/job_"
 #url = "http://100.25.247.222/uploads/classroom4k.zip"
 url = "http://100.25.247.222/uploads/classroom_720.zip"
 blend_file = "classroom/classroom.blend"
-upload_web = 0
+upload_web = "http://100.25.247.222/uploads/upload_images.php"
 
 for i in range (start, end):
 	range_in = i*skip+1
