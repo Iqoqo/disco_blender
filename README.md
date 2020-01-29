@@ -23,8 +23,7 @@ raymondlo84/disco_blender   latest              a667592ba964        3 weeks ago 
 Alternatively, you can build your own with the build script inside the docker directory
 
 ```
-cd docker
-sh build.sh
+cd docker && sh build.sh
 ```
 
 ## Blender Core Python Script
