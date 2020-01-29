@@ -20,7 +20,12 @@ REPOSITORY                  TAG                 IMAGE ID            CREATED     
 raymondlo84/disco_blender   latest              a667592ba964        3 weeks ago         851MB
 
 ```
+Alternatively, you can build your own with the build script inside the docker directory
 
+```
+cd docker
+sh build.sh
+```
 
 ## Blender Core Python Script
 The core python script provides a wrapper to execute blender render program in parallel across all servers with dis.co platform. 
@@ -59,6 +64,14 @@ The first line is the URL to the blender project, in a zip format. It is importa
 The second line is the path to the blender project.
 The third and forth line define the range for the frames in and out. In example, classroom_111_120.txt will render frame 111 to 120 from the blender project.
 
+## How to Run (Locally)
+We provided a run script that you can test the blender solution. You can test the solution by running the following script.
+```
+sh run_local.sh
+```
+This will execute the scripts on the Blender Docker image. 
+
+
 ## How to Run (CLI)
 Once you have generated the tasks files (e.g., classroom_1_10.txt, classroom_11_20.txt, ... etc), we can now run a new job on the dis.co server with the command line interface.
 
@@ -88,7 +101,7 @@ disco job download-results <job_id> -d .
 
 Alternatively, just execute the run script we have provided after login. 
 ```
-sh run_local.sh 
+sh run_disco.sh 
 ```
 
 ## How to Run (Dis.co Web UI)
