@@ -72,8 +72,8 @@ sh run_local.sh
 This will execute the scripts on the Blender Docker image. 
 
 
-## How to Run (CLI)
-Once you have generated the tasks files (e.g., classroom_1_10.txt, classroom_11_20.txt, ... etc), we can now run a new job on the dis.co server with the command line interface.
+## How to Run (Dis.co's CLI)
+Once you have generated the tasks files (e.g., job_1_1.txt, job_2_2.txt, ... etc), we can now run a new job on the dis.co server with the command line interface.
 
 1. Login with your username and password 
 
@@ -84,7 +84,7 @@ disco login
 2. Add and Run the job (also make note of the <job_id> for next step).
 
 ```
- disco job create -cit l -n "blender_example" -s blender_core.py -i "classroom_*.txt" -r
+ disco job create -cit l -n "blender_example_10_frames" -s blender_core.py -i "classroom_sample/job_*.txt" -r
 ```
 
 3. Monitor the job with the disco's view command: <job_id> 
