@@ -111,7 +111,7 @@ Note: Please talk to our dis.co team and enable a dis.co account with the custom
 2. Login to the dis.co account with your account username and password
 3. Click "Create A Job" button (right corner)
 4. Select (or drag and drop) the script file (e.g., **blender_core.py**)
-5. Select (or drag and drop) a list of tasks (e.g., **classroom_1_10.txt**, **classroom_11_20.txt**,...)
+5. Select (or drag and drop) a list of tasks (e.g., **job_1_1.txt**, **classroom_2_2.txt**,...)
 6. Select "Large" as the Job Size from the drop down list
 7. Check the "Autorun this job" checkbox
 8. Click "Create Job" button
