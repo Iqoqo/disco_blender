@@ -23,7 +23,6 @@ raymondlo84/disco_blender   latest              a667592ba964        3 weeks ago 
 
 
 ## Blender Core Python Script
-
 The core python script provides a wrapper to execute blender render program in parallel across all servers with dis.co platform. 
 
 ## Job Generator
@@ -32,30 +31,28 @@ We provide a simple script to generate a parallelized the blender rendering task
 ```
 python job_generator.py
 ```
-By running the script, it will generate a set of files which will be uploaded to the dis.co server.
+By running the script, it will generate a set of data files in the classroom_sample directory.
 ```
-   8 -rw-r--r--   1 raymondlo84  staff       77 Nov 27 09:00 classroom_1_10.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_11_20.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_21_30.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_31_40.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_41_50.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_51_60.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_61_70.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_71_80.txt
-   8 -rw-r--r--   1 raymondlo84  staff       78 Nov 27 09:00 classroom_81_90.txt
-   8 -rw-r--r--   1 raymondlo84  staff       79 Nov 27 09:00 classroom_91_100.txt
-   8 -rw-r--r--   1 raymondlo84  staff       80 Nov 27 09:00 classroom_101_110.txt
-   8 -rw-r--r--   1 raymondlo84  staff       80 Nov 27 09:00 classroom_111_120.txt
-   8 -rw-r--r--   1 raymondlo84  staff       80 Nov 27 09:00 classroom_121_130.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_1_1.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_2_2.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_3_3.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_4_4.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_5_5.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_6_6.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_7_7.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_8_8.txt
+    8 -rw-r--r--   1 raymondlo84  staff       126 Jan 28 16:45 job_9_9.txt
+    8 -rw-r--r--   1 raymondlo84  staff       128 Jan 28 16:45 job_10_10.txt
 ```
 
-For example, if we look inside the classroom_111_120.txt, you will see 4 lines of text.
+For example, if we look inside the job_1_1.txt, you will see 5 lines of information.
 
 ```
-http://100.25.247.222/uploads/classroom4k.zip
+http://100.25.247.222/uploads/classroom_720.zip
 classroom/classroom.blend
-111
-120
+1
+1
+http://100.25.247.222/uploads/upload_images.php
 ```
 
 The first line is the URL to the blender project, in a zip format. It is important that we package all dependencies and all other asset files inside that folder. This will be distributed across all servers in runtime. 
@@ -65,16 +62,16 @@ The third and forth line define the range for the frames in and out. In example,
 ## How to Run (CLI)
 Once you have generated the tasks files (e.g., classroom_1_10.txt, classroom_11_20.txt, ... etc), we can now run a new job on the dis.co server with the command line interface.
 
-1. Login with the command (Please contact us to obtain the API key for the account) 
+1. Login with your username and password 
 
 ```
-disco login -k [API key]
+disco login 
 ```
 
 2. Add and Run the job (also make note of the <job_id> for next step).
 
 ```
- disco job create -cit l --name "blender_example" --script blender_core.py --input "classroom_*.txt" -r
+ disco job create -cit l -n "blender_example" -s blender_core.py -i "classroom_*.txt" -r
 ```
 
 3. Monitor the job with the disco's view command: <job_id> 
@@ -87,6 +84,11 @@ disco job view <job_id>
 
 ```
 disco job download-results <job_id> -d .
+```
+
+Alternatively, just execute the run script we have provided after login. 
+```
+sh run_local.sh 
 ```
 
 ## How to Run (Dis.co Web UI)
