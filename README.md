@@ -62,7 +62,7 @@ http://100.25.247.222/uploads/upload_images.php
 
 The first line is the URL to the blender project, in a zip format. It is important that we package all dependencies and all other asset files inside that folder. This will be distributed across all servers in runtime. 
 The second line is the path to the blender project.
-The third and forth line define the range for the frames in and out. In example, classroom_111_120.txt will render frame 111 to 120 from the blender project.
+The third and forth line define the range for the frames in and out. In example, job_1_1.txt will render frame 1 to 1 (yes 1 frame) from the blender project. Lastly, the last line is optional but allows user to upload the final image to a separate server. This would be useful if you want to automate or pipe information to another system. 
 
 ## How to Run (Locally)
 We provided a run script that you can test the blender solution. You can test the solution by running the following script.
