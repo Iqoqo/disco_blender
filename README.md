@@ -105,7 +105,8 @@ sh run_disco.sh
 
 ## How to Run (Dis.co Web UI)
 
-Note: Please talk to our dis.co team and enable a dis.co account with the customized docker image.
+![Run Job](https://github.com/Iqoqo/disco_blender/blob/master/docs/disco-create-job.gif "Run Job")
+
 
 1. Open <app.dis.co> in a Chrome browser (Currently we do not support other browsers)
 2. Login to the dis.co account with your account username and password
