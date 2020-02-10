@@ -26,6 +26,13 @@ Alternatively, you can build your own with the build script inside the docker di
 cd docker && sh build.sh
 ```
 
+## Connect the Docker Image to Dis.co 
+
+Please follow this tutorial to connect our image to your Dis.co account **(WARNING: THIS STEP IS A MUST TO GET THIS TUTORIAL WORKING)**
+
+https://docs.dis.co/integrations/custom-docker-images
+
+
 ## Blender Core Python Script
 The core python script provides a wrapper to execute blender render program in parallel across all servers with dis.co platform. 
 
