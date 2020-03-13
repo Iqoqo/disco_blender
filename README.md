@@ -28,7 +28,7 @@ cd docker && sh build.sh
 
 ## Connect the Docker Image to Dis.co 
 
-Please follow this tutorial to connect our image to your Dis.co account **(WARNING: THIS STEP IS A MUST TO GET THIS TUTORIAL WORKING)**
+Please follow this tutorial to connect our image to your Dis.co account **(WARNING: THIS STEP IS A MUST TO GET THIS TUTORIAL WORKING, AND THE DOCKER IMAGE HAS TO BE PUBLIC)**
 
 https://docs.dis.co/integrations/custom-docker-images
 
