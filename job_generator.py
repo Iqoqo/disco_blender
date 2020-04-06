@@ -7,11 +7,11 @@ skip = 1
 directory = "classroom_sample/"
 job_name = "job_"
 
-#url = "http://100.25.247.222/uploads/classroom4k.zip"
-url = "http://100.25.247.222/uploads/classroom_720.zip"
+url = "http://100.25.247.222/uploads/classroom4k.zip"
+#url = "http://100.25.247.222/uploads/classroom_720.zip"
 blend_file = "classroom/classroom.blend"
-upload_web = "http://100.25.247.222/uploads/upload_images.php"
-#upload_web = "" 
+#upload_web = "http://100.25.247.222/uploads/upload_images.php"
+upload_web = "" 
 
 if not os.path.exists(directory):
     os.makedirs(directory)
