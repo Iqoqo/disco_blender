@@ -56,19 +56,18 @@ By running the script, it will generate a set of data files in the classroom_sam
     8 -rw-r--r--   1 raymondlo84  staff       128 Jan 28 16:45 job_10_10.txt
 ```
 
-For example, if we look inside the job_1_1.txt, you will see 5 lines of information.
+For example, if we look inside the job_1_1.txt, you will see 4 lines of information.
 
 ```
-http://100.25.247.222/uploads/classroom_720.zip
+https://github.com/Iqoqo/disco_blender/raw/master/classroom_720.zip
 classroom/classroom.blend
 1
 1
-http://100.25.247.222/uploads/upload_images.php
 ```
 
 The first line is the URL to the blender project, in a zip format. It is important that we package all dependencies and all other asset files inside that folder. This will be distributed across all servers in runtime. 
 The second line is the path to the blender project.
-The third and forth line define the range for the frames in and out. In example, job_1_1.txt will render frame 1 to 1 (yes 1 frame) from the blender project. Lastly, the last line is optional but allows user to upload the final image to a separate server. This would be useful if you want to automate or pipe information to another system. 
+The third and forth line define the range for the frames in and out. In example, job_1_1.txt will render frame 1 to 1 (yes 1 frame) from the blender project. 
 
 ## How to Run (Locally)
 We provided a run script that you can test the blender solution. You can test the solution by running the following script.
